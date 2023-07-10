@@ -1,0 +1,69 @@
+# Comments are provided throughout this file to help you get started.
+# If you need more help, visit the Docker compose reference guide at
+# https://docs.docker.com/compose/compose-file/
+
+# Here the instructions define your application as two services called "todo-app" and “todo-database”
+# The service “todo-app” is built from the Dockerfile in the /app directory,
+# and the service “todo-database” uses the official MongoDB image 
+# from Docker Hub - https://hub.docker.com/_/mongo. 
+# You can add other services your application may depend on here.
+
+services:
+  db:
+    build:
+      context: .
+      dockerfile: ./mysql/Dockerfile
+    volumes:
+      - db-store:/var/lib/mysql
+      - ./logs:/var/log/mysql
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    environment:
+      - MYSQL_ROOT_HOST=${DB_HOST}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_ROOT_PASSWORD=${DB_PASS}
+      - TZ=${TZ}
+    ports:
+      - ${DB_PORT}:3306
+    networks:
+      - backend
+
+  todo-api:
+    env_file: ./app/.env
+    build:
+      context: ./app # docker file の場所
+    links:
+      - db
+    environment:
+      NODE_ENV: production
+    tty: true
+    ports:
+      - 8080:8080
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - db
+  
+  todo-client:
+    env_file: ./client/.env
+    build:
+      context: ./client # docker file の場所
+    links:
+      - todo-api
+    environment:
+      NODE_ENV: production
+    tty: true
+    ports:
+      - 3000:3000
+    networks:
+      - frontend
+
+
+networks:
+  backend:
+  frontend:
+
+volumes:
+  db-store:

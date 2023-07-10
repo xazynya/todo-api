@@ -1,0 +1,14 @@
+.completed{
+    text-decoration: line-through;
+}
+.disablecheck{
+    padding-top:0.9rem;
+}
+.deletebutton{
+    margin-top:70%;
+}
+.border-bottom {
+    border-bottom:1px #DDD solid;
+    margin-bottom:5px;
+    padding-bottom:2px;
+}

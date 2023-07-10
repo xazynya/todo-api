@@ -6,21 +6,22 @@
 
 ## ▼必須要件
 
-・Todo の要素として次の項目を保持する
-- [x] タイトル
-- [x]  内容
-- [x] 検索
-- [x] 登録
-- [x] 更新
-- [x] 削除
-- [x] API 仕様書
+・Todo の要素として次の項目を実装している
+- タイトル
+- 内容
+- 検索
+- 登録
+- 更新
+- 削除
+- API 仕様書 
 
 ## 追加項目
 
 - [x] ユーザごとにTodoの操作が可能で、認証/認可を行える
 
 ## 使用環境
-
+- [docker compose](https://docs.docker.com/compose/)
+- git
 - mysql8
 - node.js 18.12.1
   - React
@@ -29,6 +30,7 @@
 
 - このリポジトリをローカルにクローン
 ```
+git clone git@github.com:xazynya/todo-api.git
 ```
 /API 直下で以下コマンド実施
 ```
