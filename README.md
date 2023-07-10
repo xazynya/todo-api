@@ -13,7 +13,9 @@
 - 登録
 - 更新
 - 削除
-- API 仕様書 
+- API 仕様書 以下に記載
+  -  app/api/api.html
+  -  app/api/api.md
 
 ## 追加項目
 
