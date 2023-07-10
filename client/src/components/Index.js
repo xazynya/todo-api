@@ -4,7 +4,7 @@ const Index = (  ) => {
     return (
         <>
         <div>
-            <a href="/suinup">サインアップ</a><br />
+            <a href="/signup">サインアップ</a><br />
             <a href="/login">ログイン</a>
         </div>
         </>

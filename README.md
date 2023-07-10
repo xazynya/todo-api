@@ -34,7 +34,7 @@
 ```
 git clone git@github.com:xazynya/todo-api.git
 ```
-/API 直下で以下コマンド実施
+/todo-api 直下で以下コマンド実施
 ```
 $ docker compose up -d
 ```
