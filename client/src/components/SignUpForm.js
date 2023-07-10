@@ -67,6 +67,7 @@ const SignUpForm = ({ onSignUp }) => {
                 Sign In
             </Button>
         </Form>
+        <a href="./login">サインアップ後遷移しない場合はこちらをクリック</a>
       </>
     );
 
