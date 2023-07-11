@@ -22,11 +22,12 @@ const SignupAction = () => {
         // Send POST request;
         const result = await axios.post(BASE_URL, params)
         .then(response => {
+            setRes(response.data);
             if (response.status === "OK") {
                 /** 遷移 */
                 navigate("/login");
             }
-            setRes(response.data);
+
         })
     }
 
