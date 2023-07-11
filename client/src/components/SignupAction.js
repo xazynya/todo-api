@@ -10,7 +10,7 @@ const SignupAction = () => {
 
     const [res, setRes] = React.useState("");
     
-    const navigate = new useNavigate();
+    const navigate = useNavigate();
 
     const onSignUp = async(email, userName, userPass) => {
         setRes('');
@@ -22,10 +22,11 @@ const SignupAction = () => {
         // Send POST request;
         const result = await axios.post(BASE_URL, params)
         .then(response => {
-            setRes(response.data);
             if (res.status === "OK") {
+                /** 遷移 */
                 navigate("/login");
             }
+            setRes(response.data);
         })
     }
 
